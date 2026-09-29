@@ -1,3 +1,24 @@
+Metadata-Version: 2.4
+Name: c3-semantic-engine
+Version: 2.0.0
+Summary: C3 — a multiplicative context-synthesis and decision-gating pattern for autonomous agents.
+Author: Mustafa İskender
+License: MIT
+Project-URL: Homepage, https://github.com/iskenderunic/c3-semantic-engine
+Project-URL: Repository, https://github.com/iskenderunic/c3-semantic-engine
+Project-URL: Issues, https://github.com/iskenderunic/c3-semantic-engine/issues
+Keywords: ai,agents,llm,agentic,semantic,context-engineering,prompt-engineering,decision-gate
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: LICENSE-DOCS
+Dynamic: license-file
+
 # C3 Engine & Algorithmic Framework — Specification & Prior-Art Dossier
 
 # C3 Motoru ve Algoritmik Çerçevesi — Teknik Şartname ve Literatür Dosyası

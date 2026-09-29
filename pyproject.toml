@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "c3-semantic-engine"
+version = "2.0.0"
+description = "C3 — a multiplicative context-synthesis and decision-gating pattern for autonomous agents."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Mustafa İskender" }]
+keywords = [
+    "ai", "agents", "llm", "agentic", "semantic",
+    "context-engineering", "prompt-engineering", "decision-gate",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/iskenderunic/c3-semantic-engine"
+Repository = "https://github.com/iskenderunic/c3-semantic-engine"
+Issues = "https://github.com/iskenderunic/c3-semantic-engine/issues"
+
+[tool.setuptools]
+py-modules = ["c3_semantic_engine"]

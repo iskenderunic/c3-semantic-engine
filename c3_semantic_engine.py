@@ -1,7 +1,11 @@
 """
-C3 Engine — reference implementation.
+c3_semantic_engine — the C3 decision gate.
 
-A dependency-free, deterministic decision gate for autonomous agents:
+Single-file, dependency-free. Use it two ways:
+  1. Drop-in: copy this file into your project → `from c3_semantic_engine import C3Engine`.
+  2. Install: `pip install git+https://github.com/iskenderunic/c3-semantic-engine`.
+
+A deterministic decision gate for autonomous agents:
 
     context = concept * content        # both scores in [0, 1]
     fire the gate iff context >= tau
@@ -12,14 +16,26 @@ an embedding-similarity function, or deterministic validators). This file ships
 transparent example scorers so the gate is runnable, and a `RegistryScorer` that
 composes several signals.
 
-License: MIT (see ../LICENSE).
+License: MIT (see LICENSE).
 Author: Mustafa İskender — Wise-Tech OS (WTOS) / Runix.
 """
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Any, Callable, Iterable, Protocol
+
+__version__ = "2.0.0"
+__all__ = [
+    "C3Engine",
+    "Decision",
+    "Scorer",
+    "RegistryScorer",
+    "keyword_alignment_scorer",
+    "validator_fidelity_scorer",
+    "estimate_missing_factor",
+    "clamp01",
+]
 
 
 # --------------------------------------------------------------------------- #
