@@ -35,6 +35,7 @@ This revision hardens the framework for public/technical scrutiny:
 - [1. Executive Summary](#1-executive-summary)
 - [Install & Use](#install--use)
 - [2. The Operational Model](#2-the-operational-model)
+- [The C3 Triad — Three Modes](#the-c3-triad--three-operating-modes-conceptual-layer)
 - [3. Structural Decomposition](#3-structural-decomposition)
 - [4. Agentic Integration & Scoring](#4-agentic-integration--scoring)
 - [5. System Dynamics & Feedback Loops](#5-system-dynamics--feedback-loops)
@@ -140,6 +141,38 @@ with no plan, are both treated as **non-actionable** — the gate refuses to fir
 
 > **Scope note.** The "annihilation" is exact only at 0. Near zero it is ordinary
 > multiplication; the useful consequence is monotone attenuation, not a discontinuity.
+
+---
+
+## The C3 Triad — Three Operating Modes (conceptual layer)
+
+The single **computable** relation is `Context = Concept × Content` (§2). But C3 is originally
+conceived as a **symmetric triad**: three vertices — Concept, Content, Context — where any two
+generate the third. Depending on which two you hold, you solve for a different unknown. These are
+three *operating modes*, not three simultaneous equations.
+
+| Variation | Mode | You have → you seek | Question |
+| --------- | ---- | ------------------- | -------- |
+| `Concept × Content = Context` | **Synthesis** | intent + payload → meaning | *What fit emerges?* |
+| `Concept × Context = Content` | **Manifestation** | intent + situation → payload | *What should be produced here?* |
+| `Context × Content = Concept` | **Distillation** | meaning + payload → intent | *What was the underlying intent?* |
+
+```
+                Concept
+               /        \
+       Synthesis        Manifestation
+             /              \
+        Content —— Distillation —— Context
+```
+
+A **meaning triangle**: each edge is one mode; the two vertices it connects produce the third.
+
+> **Honest note (see §9).** Written as products, these three cannot all hold for the same values
+> (except the trivial 0/1 case) — so this is a **conceptual / design** layer, not simultaneous
+> algebra. In the **computable** engine only *Synthesis* is an exact forward product;
+> *Manifestation* and *Distillation* are recovered by division (`known → sought`) and are **lossy**
+> — directional diagnostics, not exact reconstructions. The math layer stays rigorous; the triad is
+> the framing that makes the three generative directions legible.
 
 ---
 
@@ -315,6 +348,11 @@ olan bir **operasyonel model / sezgisel yöntem** olarak ele alın.
   doğrulayıcı stratejileriyle üretilir (§4). Motor bu skorlayıcıları *enjekte* eder.
 - **Teşhis (eski "tersine mühendislik"):** `γ/known` ancak **yönlü bir teşhistir** — çarpım
   kayıplı olduğu ve sıfıra bölme tanımsız olduğu için gizli faktör kesin geri-türetilemez (§9).
+- **C3 Üçlemesi (anlam üçgeni):** Çekirdek tek denklem olsa da C3 simetrik bir üçgen olarak
+  tasarlanmıştır — her iki köşe üçüncüyü üretir: **Sentez** (Concept×Content=Context), **Tezahür**
+  (Concept×Context=Content), **Öz** (Context×Content=Concept). Bu üç *mod* aynı anda geçerli bir
+  cebir değil, **kavramsal bir katmandır**; hesaplanabilir motorda yalnızca Sentez tam çarpım,
+  diğerleri kayıplı bölmeyle türetilir.
 
 Ayrıntılı bölümler için yukarıdaki İngilizce şartnameye bakın; referans uygulama
 [`c3_semantic_engine.py`](c3_semantic_engine.py).
