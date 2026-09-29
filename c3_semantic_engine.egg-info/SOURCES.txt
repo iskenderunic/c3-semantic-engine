@@ -1,9 +1,0 @@
-LICENSE
-LICENSE-DOCS
-README.md
-c3_semantic_engine.py
-pyproject.toml
-c3_semantic_engine.egg-info/PKG-INFO
-c3_semantic_engine.egg-info/SOURCES.txt
-c3_semantic_engine.egg-info/dependency_links.txt
-c3_semantic_engine.egg-info/top_level.txt
