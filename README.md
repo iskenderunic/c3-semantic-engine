@@ -221,6 +221,41 @@ A runnable, dependency-free reference with a **pluggable scorer interface** live
 you inject `concept_scorer` and `content_scorer` callables (an LLM judge, an embedder, or a
 validator). The v1 truthiness placeholders have been removed in favor of this contract.
 
+### 4.3 Applied example — Manifestation in practice
+
+§4.1–4.2 cover **Synthesis** (score a *candidate* against invariants → `EXECUTE`/`REFINE`).
+**Manifestation** (`Concept × Context = Content`, §Triad) is the *generative* direction, and it
+runs as a three-stage agentic pipeline rather than a gate: hold a fixed **Context**, read a
+**Concept** from source material, then **produce** fresh **Content**.
+
+```
+Source material ─▶ Concept  (extract)  ─┐
+                                        ├─▶ Content = Concept × Context ─▶ artifact
+Context instance ─▶ Context (held)  ────┘
+```
+
+1. **Concept extraction.** An LLM reads the source and distills one core concept (abstract *or*
+   concrete — fit to the material, don't force abstraction).
+2. **Context injection.** A concrete **Context instance** is applied. A useful shape for this is a
+   **CODNA** — a *brand / aesthetic genetic code*: palette, mood, **tonal range** (light/mid/dark,
+   derived from the concept rather than fixed), **composition range** (abstract or representational),
+   and **originality rules** (an explicit anti-cliché list). The Context *steers and constrains*;
+   it does not uniquely determine the output.
+3. **Content generation.** A generative model turns the fused `Concept × Context` into the artifact
+   (text, image, code…).
+
+A working instance is **"Single Prompt Shot"** on
+[mustafaiskender.com/c3](https://mustafaiskender.com/c3): a blog post → extracted Concept → CODNA
+Context → a one-shot prompt → a generated **featured image**. The same CODNA file feeds both the
+public [`/codna`](https://mustafaiskender.com/codna) showcase and the agent's Context — one source
+of truth.
+
+Because Manifestation is **lossy/generative** (see the Triad note and §9), the value is not an exact
+reconstruction but a *steered* one: the Context fixes identity (palette, mood, constraints) while
+the Concept supplies novelty. The anti-cliché rules exist precisely to keep a fixed Context from
+collapsing into one repeated output. A dependency-free pipeline sketch lives in
+[`examples/manifestation.py`](examples/manifestation.py).
+
 ---
 
 ## 5. System Dynamics & Feedback Loops
@@ -353,9 +388,19 @@ olan bir **operasyonel model / sezgisel yöntem** olarak ele alın.
   (Concept×Context=Content), **Öz** (Context×Content=Concept). Bu üç *mod* aynı anda geçerli bir
   cebir değil, **kavramsal bir katmandır**; hesaplanabilir motorda yalnızca Sentez tam çarpım,
   diğerleri kayıplı bölmeyle türetilir.
+- **Tezahür — uygulama (§4.3):** Sentez bir *adayı* skorlayan karar geçidiyken, **Tezahür**
+  (Concept × Context = Content) *üretken* yöndür ve üç aşamalı bir ajan hattı olarak çalışır:
+  (1) kaynaktan **Concept** çıkar, (2) sabit bir **Context** uygula, (3) yeni **Content** üret.
+  Context için kullanışlı bir biçim **CODNA**'dır — markanın *genetik kodu*: palet, mood, ton
+  aralığı, kompozisyon aralığı ve özgünlük (anti-klişe) kuralları. Çalışan örnek:
+  [mustafaiskender.com/c3](https://mustafaiskender.com/c3) üzerindeki **"Single Prompt Shot"**
+  (blog içeriği → Concept → CODNA → tek-atış prompt → üretilen öne çıkan görsel). Aynı CODNA
+  dosyası hem herkese açık [`/codna`](https://mustafaiskender.com/codna) vitrinini hem ajanın
+  Context'ini besler — tek doğruluk kaynağı.
 
 Ayrıntılı bölümler için yukarıdaki İngilizce şartnameye bakın; referans uygulama
-[`c3_semantic_engine.py`](c3_semantic_engine.py).
+[`c3_semantic_engine.py`](c3_semantic_engine.py), uygulama örneği
+[`examples/manifestation.py`](examples/manifestation.py).
 
 ---
 
